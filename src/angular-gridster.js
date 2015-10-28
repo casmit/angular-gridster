@@ -2146,13 +2146,13 @@
 
 					var debouncedTransitionEndPublisher = gridsterDebounce(function() {
 						scope.$apply(function() {
-							scope.$broadcast('gridster-item-transition-end', item);
+							scope.$emit('gridster-item-transition-end', item);
 						});
 					}, 50);
 
 					$el.on(whichTransitionEvent(), debouncedTransitionEndPublisher);
 
-					scope.$broadcast('gridster-item-initialized', item);
+					scope.$emit('gridster-item-initialized', item);
 
 					return scope.$on('$destroy', function() {
 						try {
